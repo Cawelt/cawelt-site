@@ -10,10 +10,43 @@ const services = ["Web sitesi", "Mobil uygulama", "Panel + API", "Tümü"];
 export default function ContactForm() {
   const [service, setService] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handle = (e: React.FormEvent) => {
+  const handle = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    if (sending) return;
+    setError(null);
+    setSending(true);
+
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      name: fd.get("name"),
+      email: fd.get("email"),
+      company: fd.get("company"),
+      website: fd.get("website"),
+      message: fd.get("message"),
+      company_url: fd.get("company_url"), // honeypot
+      service: service ?? "",
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && json.ok) {
+        setSent(true);
+      } else {
+        setError(json.error ?? "Mail gönderilemedi. Lütfen tekrar deneyin.");
+      }
+    } catch {
+      setError("Bağlantı hatası. Lütfen tekrar deneyin.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -96,6 +129,25 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* Honeypot — gerçek kullanıcılar görmez, botlar doldurur */}
+      <div aria-hidden className="absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden" >
+        <label>
+          Şirket web sitesi
+          <input
+            type="text"
+            name="company_url"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+      </div>
+
+      {error && (
+        <p className="mt-4 rounded-xl border border-ember/40 bg-ember/10 px-4 py-3 text-sm text-ember-soft">
+          {error}
+        </p>
+      )}
+
       <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
         <p className="max-w-sm text-xs text-mute">
           Bilgilerin sadece bu projeyi değerlendirmek için kullanılır. Üçüncü
@@ -104,13 +156,16 @@ export default function ContactForm() {
         <Magnetic className="self-stretch sm:self-auto">
           <button
             type="submit"
-            className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-bone px-6 py-3.5 text-sm font-medium text-ink sm:w-auto"
+            disabled={sending}
+            className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-bone px-6 py-3.5 text-sm font-medium text-ink transition-opacity disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
-            Gönder
-            <ArrowUpRight
-              size={16}
-              className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
+            {sending ? "Gönderiliyor…" : "Gönder"}
+            {!sending && (
+              <ArrowUpRight
+                size={16}
+                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
+            )}
           </button>
         </Magnetic>
       </div>

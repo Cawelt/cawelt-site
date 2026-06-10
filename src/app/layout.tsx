@@ -44,6 +44,9 @@ export const metadata: Metadata = {
   creator: site.legal,
   publisher: site.legal,
   category: "technology",
+  verification: {
+    google: "uMWj5Dlpvoz4HI9qg5S9PYqj8p71qbDQ_R0fGBnpf3I",
+  },
   alternates: { canonical: "/" },
   formatDetection: { email: false, telephone: false, address: false },
   openGraph: {
