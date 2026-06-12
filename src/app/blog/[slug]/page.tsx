@@ -45,11 +45,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       authors: [post.author],
       section: post.category,
       tags: post.tags,
+      images: post.cover ? [post.cover] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
+      images: post.cover ? [post.cover] : undefined,
     },
   };
 }
@@ -79,7 +81,7 @@ export default async function BlogPostPage({ params }: Params) {
       mainEntityOfPage: { "@type": "WebPage", "@id": postUrl(post) },
       keywords: post.tags.join(", "),
       articleSection: post.category,
-      image: `${site.url}/opengraph-image`,
+      image: post.cover ?? `${site.url}/opengraph-image`,
     },
     {
       "@type": "BreadcrumbList",
@@ -153,6 +155,14 @@ export default async function BlogPostPage({ params }: Params) {
             {post.title}
           </h1>
           <p className="mt-6 text-lg text-bone-muted">{post.description}</p>
+          {post.cover ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={post.cover}
+              alt={post.title}
+              className="mt-10 aspect-[16/9] w-full rounded-card border border-line object-cover"
+            />
+          ) : null}
         </header>
 
         {/* İçindekiler */}

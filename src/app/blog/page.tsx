@@ -87,6 +87,15 @@ export default async function BlogIndexPage() {
               href={`/blog/${featured.slug}`}
               className="group block border-t border-line/60 pt-12"
             >
+              {featured.cover ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={featured.cover}
+                  alt=""
+                  loading="lazy"
+                  className="mb-8 aspect-[16/9] w-full rounded-card border border-line object-cover"
+                />
+              ) : null}
               <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
                 <div className="lg:col-span-7">
                   <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-mute">
@@ -128,6 +137,15 @@ export default async function BlogIndexPage() {
                   href={`/blog/${post.slug}`}
                   className="group flex h-full flex-col p-8 lg:p-10"
                 >
+                  {post.cover ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={post.cover}
+                      alt=""
+                      loading="lazy"
+                      className="mb-6 aspect-[16/9] w-full rounded-lg border border-line object-cover"
+                    />
+                  ) : null}
                   <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-mute">
                     <span className="text-champagne">{post.category}</span>
                     <span aria-hidden>·</span>
