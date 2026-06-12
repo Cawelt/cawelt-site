@@ -45,13 +45,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       authors: [post.author],
       section: post.category,
       tags: post.tags,
-      images: post.cover ? [post.cover] : undefined,
+      images: post.cover && !post.cover.endsWith(".svg") ? [post.cover] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: post.cover ? [post.cover] : undefined,
+      images: post.cover && !post.cover.endsWith(".svg") ? [post.cover] : undefined,
     },
   };
 }
@@ -81,7 +81,10 @@ export default async function BlogPostPage({ params }: Params) {
       mainEntityOfPage: { "@type": "WebPage", "@id": postUrl(post) },
       keywords: post.tags.join(", "),
       articleSection: post.category,
-      image: post.cover ?? `${site.url}/opengraph-image`,
+      image:
+        post.cover && !post.cover.endsWith(".svg")
+          ? post.cover
+          : `${site.url}/opengraph-image`,
     },
     {
       "@type": "BreadcrumbList",

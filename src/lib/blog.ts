@@ -117,6 +117,99 @@ export function postUrl(post: BlogPost): string {
 // CRM erişilemediğinde / yapılandırılmadığında devreye giren yerel içerik.
 const localPosts: BlogPost[] = [
   {
+    slug: "donusturen-landing-page-tasarimi",
+    title: "Dönüşüm getiren açılış sayfası (landing page) nasıl tasarlanır?",
+    description:
+      "Yüksek dönüşümlü bir açılış sayfasının anatomisi: tek hedef, güçlü başlık, sosyal kanıt, net CTA ve hız. Pratik bir kontrol listesiyle.",
+    category: "Rehber",
+    tags: ["landing page", "açılış sayfası", "dönüşüm", "UX", "web tasarım"],
+    author: site.legal,
+    publishedAt: "2026-06-12",
+    cover: "/blog-covers/donusturen-landing-page.svg",
+    faq: [
+      {
+        q: "Açılış sayfası ile normal web sitesi arasındaki fark nedir?",
+        a: "Web sitesi çok amaçlıdır ve gezinmeye açıktır; açılış sayfası ise tek bir hedefe (form doldurma, satın alma, randevu) odaklanır. Dikkat dağıtan menü ve linkler kasıtlı olarak azaltılır.",
+      },
+      {
+        q: "Bir açılış sayfasında kaç tane CTA olmalı?",
+        a: "Tek bir birincil eylem olmalı; bu eylem sayfa boyunca birkaç kez tekrar edebilir ama hep aynı hedefi göstermelidir. Farklı yönlere çeken çoklu CTA dönüşümü düşürür.",
+      },
+      {
+        q: "Açılış sayfası hızı dönüşümü etkiler mi?",
+        a: "Evet, doğrudan. Yüklenme süresi arttıkça hemen çıkma oranı yükselir. İlk ekranın 2,5 saniyenin altında yüklenmesi (LCP) dönüşüm için kritik bir eşiktir.",
+      },
+    ],
+    body: [
+      {
+        type: "lead",
+        text: "İyi bir açılış sayfası bir broşür değil, bir karar makinesidir. Ziyaretçiyi tek bir eyleme taşımak için tasarlanır — ne eksik, ne fazla. İşte yüksek dönüşümlü bir açılış sayfasının anatomisi ve uygulayabileceğin bir kontrol listesi.",
+      },
+      { type: "h2", text: "1. Tek sayfa, tek hedef" },
+      {
+        type: "p",
+        text: "Açılış sayfasının en büyük gücü odaktır. Menüyü, ilgisiz linkleri ve “keşfet” davetlerini kaldır. Ziyaretçinin yapabileceği tek anlamlı şey, senin istediğin eylem olmalı: form doldurmak, randevu almak ya da satın almak.",
+      },
+      { type: "h2", text: "2. İlk ekran (hero) 5 saniyede ikna etmeli" },
+      {
+        type: "p",
+        text: "Ziyaretçi kaydırmadan önce üç soruyu yanıtlamalısın: **Bu ne?**, **bana ne faydası var?**, **şimdi ne yapmalıyım?**. Net bir başlık, destekleyici tek cümle ve görünür bir [çağrı butonu](/iletisim) yeterlidir.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Başlık: sonucu/faydayı söyle, özelliği değil",
+          "Alt başlık: kime, neden uygun olduğunu netleştir",
+          "CTA: tek, belirgin ve eylem odaklı (“Brifini gönder” gibi)",
+        ],
+      },
+      { type: "h2", text: "3. Sosyal kanıt güveni inşa eder" },
+      {
+        type: "p",
+        text: "İnsanlar başkalarının kararına güvenir. Gerçek müşteri yorumları, logolar, vaka çalışmaları ve sayısal sonuçlar (“%40 dönüşüm artışı”) şüpheyi azaltır. [Çalışmalarımız](/calismalar) sayfası bunun bir örneğidir.",
+      },
+      {
+        type: "callout",
+        text: "İpucu: Sosyal kanıtı CTA’nın hemen yakınına koy. Karar anında görülen bir referans, tereddüdü en çok azaltan unsurdur.",
+      },
+      { type: "h2", text: "4. İtirazları önceden karşıla" },
+      {
+        type: "p",
+        text: "Her ziyaretçinin aklında bir “ama” vardır: fiyat, süre, risk. Bunları sayfada açıkça yanıtla — SSS bölümü, garanti, şeffaf süreç. Cevaplanmamış itiraz, kaybedilmiş dönüşümdür.",
+      },
+      { type: "h2", text: "5. Tek ve tekrar eden çağrı (CTA)" },
+      {
+        type: "p",
+        text: "Birincil eylemi sayfa boyunca birkaç kez tekrarla ama hep aynı hedefe götür. Farklı yönlere çeken çoklu butonlar kararsızlık yaratır.",
+      },
+      { type: "h2", text: "6. Hız bir tasarım kararıdır" },
+      {
+        type: "p",
+        text: "En güzel açılış sayfası bile yavaşsa dönüşmez. Görselleri optimize et, gereksiz script’leri at, ilk ekranı hızlı yükle. Teknik tarafı derinleştiren [Next.js ile teknik SEO](/blog/nextjs-ile-teknik-seo) yazımıza göz at.",
+      },
+      {
+        type: "quote",
+        text: "Dönüşüm, ikna edici bir cümle değil; sürtünmenin ortadan kalktığı andır. Her gereksiz alan, her saniye gecikme bir miktar dönüşüm sızdırır.",
+      },
+      { type: "h2", text: "Hızlı kontrol listesi" },
+      {
+        type: "ol",
+        items: [
+          "Sayfanın tek bir net hedefi var mı?",
+          "İlk ekran 5 saniyede “ne/neden/şimdi ne”yi yanıtlıyor mu?",
+          "Sosyal kanıt CTA’ya yakın mı?",
+          "Başlıca itirazlar yanıtlanmış mı?",
+          "Tek bir birincil CTA tekrar ediyor mu?",
+          "İlk ekran 2,5 sn altında yükleniyor mu?",
+        ],
+      },
+      {
+        type: "p",
+        text: "Dönüşüm odaklı bir açılış sayfasına mı ihtiyacın var? Birlikte kurgulayalım — [bize bir brif gönder](/iletisim).",
+      },
+    ],
+  },
+  {
     slug: "kurumsal-web-sitesi-maliyeti-2026",
     title: "Kurumsal web sitesi maliyeti 2026: fiyatı belirleyen 7 faktör",
     description:
