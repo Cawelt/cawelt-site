@@ -80,6 +80,40 @@ function ServiceVisual({ id }: { id: string }) {
       </div>
     );
   }
+  if (id === "altyapi") {
+    return (
+      <div className="relative size-full">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-champagne/30 via-champagne/10 to-transparent" />
+        <svg viewBox="0 0 400 280" className="relative size-full">
+          {/* sunucu birimleri */}
+          <rect x="36" y="62" width="206" height="46" rx="8" fill="#15151c" stroke="#26262f" />
+          <circle cx="58" cy="85" r="4" fill="#D8CBA6" />
+          <rect x="76" y="81" width="120" height="8" rx="2" fill="#26262f" />
+          <rect x="36" y="118" width="206" height="46" rx="8" fill="#15151c" stroke="#26262f" />
+          <circle cx="58" cy="141" r="4" fill="#D8CBA6" />
+          <rect x="76" y="137" width="100" height="8" rx="2" fill="#26262f" />
+          <rect x="36" y="174" width="206" height="46" rx="8" fill="#15151c" stroke="#26262f" />
+          <circle cx="58" cy="197" r="4" fill="#3a3a45" />
+          <rect x="76" y="193" width="120" height="8" rx="2" fill="#26262f" />
+          {/* güvenlik kalkanı */}
+          <path
+            d="M325 64 L367 82 L367 130 Q367 180 325 204 Q283 180 283 130 L283 82 Z"
+            fill="#15151c"
+            stroke="#D8CBA6"
+            strokeWidth="2"
+          />
+          <polyline
+            points="306,134 320,150 346,116"
+            fill="none"
+            stroke="#D8CBA6"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+    );
+  }
   return (
     <div className="relative size-full">
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-acid/30 via-acid/10 to-transparent" />
@@ -145,16 +179,16 @@ export default function Services() {
       />
       <div className="relative mb-16 grid gap-10 lg:grid-cols-12 lg:items-end">
         <Reveal className="lg:col-span-7">
-          <p className="eyebrow mb-5">Hizmetler — 03</p>
+          <p className="eyebrow mb-5">Hizmetler — 04</p>
           <h2 className="headline text-5xl text-bone md:text-7xl lg:text-[5.5rem]">
-            Üç alanda derinleşiriz,{" "}
+            Birkaç alanda derinleşiriz,{" "}
             <span className="headline-serif text-champagne">birinde değil.</span>
           </h2>
         </Reveal>
         <Reveal className="lg:col-span-5" delay={0.15}>
           <motion.p style={{ y }} className="text-bone-muted lg:text-lg">
-            Web, mobil ve panel + API yapımızın üç ayağı. Çoğu zaman üçü aynı
-            projede buluşur — ve doğru iş birliği bu üçünü tek nefes gibi
+            Web, mobil, panel + API ve altyapı/güvenlik. Çoğu zaman birkaçı aynı
+            projede buluşur — ve doğru iş birliği hepsini tek nefes gibi
             hissettirir.
           </motion.p>
         </Reveal>

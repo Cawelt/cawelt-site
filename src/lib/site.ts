@@ -88,14 +88,29 @@ export const services = [
       "Realtime senkron (Websocket / SSE)",
     ],
   },
+  {
+    id: "altyapi",
+    index: "04",
+    title: "Altyapı, Güvenlik & Bakım",
+    short: "Mevcut siteni hızlandır, güvenli kıl, sorunsuz yayında tut.",
+    long:
+      "Eski ya da riskli bir web sitesini modern altyapıya taşıyor, güvenlik açıklarını kapatıyor, sunucu ve hosting'i kurup yönetiyoruz. Sürekli izleme ve bakımla yayında tutarız; çoğu zaman sıfırdan yazmadan mevcut yapını sağlamlaştırmak yeterlidir.",
+    bullets: [
+      "Sunucu & hosting kurulumu, yönetimi",
+      "Altyapı yenileme & performans iyileştirme",
+      "Güvenlik taraması & açıkların kapatılması",
+      "SSL, yedekleme, güncelleme, izleme",
+      "Sorunsuz yayına alma & sürekli bakım",
+    ],
+  },
 ] as const;
 
 export const projects = [
   {
     slug: "turkwaelz",
     client: "Turkwaelz",
-    title: "Çinko geri dönüşümü firması için kurumsal web sitesi",
-    discipline: ["Web"],
+    title: "Çinko geri dönüşüm firması — altyapı yenileme, güvenlik & yayın",
+    discipline: ["Altyapı", "Güvenlik"],
     year: "2026",
     accent: "#2FA84F",
     href: "https://turkwaelz.com",
@@ -105,8 +120,8 @@ export const projects = [
   {
     slug: "dusun",
     client: "Düşün",
-    title: "Okul öncesi eğitim kurumu için web sitesi",
-    discipline: ["Web"],
+    title: "Okul öncesi eğitim kurumu — altyapı, güvenlik & sunucu hizmeti",
+    discipline: ["Altyapı", "Güvenlik"],
     year: "2026",
     accent: "#4FB6A8",
     href: "https://dusun.com.tr",

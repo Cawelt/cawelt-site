@@ -7,12 +7,12 @@ import { services, stack } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Hizmetler",
   description:
-    "Web siteleri, mobil uygulamalar ve panel + API sistemleri. Üç hizmet alanında, tek ekipten.",
+    "Web siteleri, mobil uygulamalar, panel + API sistemleri ve altyapı/güvenlik. Dört hizmet alanında, tek ekipten.",
   alternates: { canonical: "/hizmetler" },
   openGraph: {
     title: "Hizmetler · CAWELT",
     description:
-      "Web siteleri, mobil uygulamalar ve panel + API sistemleri. Üç hizmet alanında, tek ekipten.",
+      "Web siteleri, mobil uygulamalar, panel + API sistemleri ve altyapı/güvenlik. Dört hizmet alanında, tek ekipten.",
     url: "/hizmetler",
   },
 };
@@ -21,10 +21,10 @@ export default function HizmetlerPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Hizmetler — 03"
+        eyebrow="Hizmetler — 04"
         title="Hizmetler."
         serif="ne yapıyoruz"
-        description="Birbiriyle konuşan üç alan. Çoğu projede üçü birden gerekir; ama sadece birini de yapabiliriz. Aşağıda her birinin nasıl çalıştığı."
+        description="Birbiriyle konuşan dört alan. Çoğu projede birkaçı birden gerekir; ama sadece birini de yapabiliriz. Aşağıda her birinin nasıl çalıştığı."
       />
 
       <section className="mx-auto max-w-[1440px] px-6 lg:px-10">
