@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function OyunPage() {
   return (
-    <section className="relative mx-auto flex min-h-[100svh] max-w-[1440px] flex-col px-4 pb-8 pt-20 sm:px-6 sm:pt-24 lg:px-10">
+    <section className="relative mx-auto flex min-h-[100svh] max-w-[1440px] flex-col overflow-x-hidden px-4 pb-8 pt-20 sm:px-6 sm:pt-24 lg:px-10">
       <div
         aria-hidden
         className="animate-drift pointer-events-none absolute left-1/2 top-24 -z-10 size-[460px] -translate-x-1/2 rounded-full bg-champagne/12 blur-[150px]"

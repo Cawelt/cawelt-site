@@ -3,6 +3,7 @@
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type PointerEvent as ReactPointerEvent,
@@ -77,6 +78,11 @@ const SPEED_REST = 0.7; // bu hızın altındaki disk "oturmuş" sayılır
 const OVER_DELAY = 1800; // tehlike çizgisi üstünde bu süre kalınca biter
 const COMBO_WINDOW = 1300; // ms — bu süre içinde gelen birleşmeler combo sayar
 const HS_KEY = "cawelt-merge-highscore";
+
+// SSR'da useLayoutEffect uyarı verir; istemcide layout-effect (boyamadan önce
+// ölçek hesabı), sunucuda no-op useEffect.
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const clamp = (v: number, lo: number, hi: number) =>
   Math.max(lo, Math.min(hi, v));
@@ -461,7 +467,7 @@ export default function MergeGame() {
   }, []);
 
   // --- Ölçek (responsive) ----------------------------------------------------
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const recompute = () => {
       const wrap = wrapRef.current;
       if (!wrap) return;
@@ -530,7 +536,8 @@ export default function MergeGame() {
         rafRef.current = requestAnimationFrame(tick);
         const dt = lastTsRef.current ? ts - lastTsRef.current : 16;
         lastTsRef.current = ts;
-        const step = Math.min(dt, 32);
+        // Matter ≤16.667ms önerir; üstünü sabitle → kare düşse de tünelleme yok.
+        const step = Math.min(dt, 16.667);
 
         if (statusRef.current === "playing") {
           Matter.Engine.update(engine, step);
@@ -775,6 +782,8 @@ export default function MergeGame() {
             style={{
               width: PLAY_W * scale,
               height: PLAY_H * scale,
+              // Ölçek henüz hesaplanmadıysa bile kutu viewport'u asla aşmasın.
+              maxWidth: "100%",
               marginInline: "auto",
               // transform:scale layout boyutunu küçültmez; iç alanın 480px'lik
               // layout taşmasını kırp → mobilde yatay kaydırma olmasın.
