@@ -39,6 +39,8 @@ export default function ContactForm() {
       const json = await res.json().catch(() => ({}));
       if (res.ok && json.ok) {
         setSent(true);
+        // Meta Pixel — potansiyel müşteri (onay verilmişse fbq tanımlıdır)
+        if (typeof window !== "undefined") window.fbq?.("track", "Lead");
       } else {
         setError(json.error ?? "Mail gönderilemedi. Lütfen tekrar deneyin.");
       }

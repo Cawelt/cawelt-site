@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import Cursor from "@/components/layout/Cursor";
 import GhostMascot from "@/components/layout/GhostMascot";
 import Intro from "@/components/layout/Intro";
+import MetaPixel from "@/components/analytics/MetaPixel";
 import PageTransition from "@/components/layout/PageTransition";
 import { site } from "@/lib/site";
 
@@ -134,6 +135,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Intro />
+        <MetaPixel />
         <SmoothScroll>
           <Cursor />
           <GhostMascot />
