@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude / agent instruction files (local geliştirme yönergeleri — repoda olmasın)
+AGENTS.md
+CLAUDE.md
+.claude/
