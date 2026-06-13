@@ -3,6 +3,7 @@ import PageHeader from "@/components/ui/PageHeader";
 import CTA from "@/components/sections/CTA";
 import { projects } from "@/lib/site";
 import ProjectGrid from "@/components/sections/ProjectGrid";
+import Testimonials from "@/components/sections/Testimonials";
 
 export const metadata: Metadata = {
   title: "Çalışmalar",
@@ -28,6 +29,8 @@ export default function CalismalarPage() {
       />
 
       <ProjectGrid items={projects} />
+
+      <Testimonials />
 
       <CTA />
     </>

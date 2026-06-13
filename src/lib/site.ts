@@ -185,6 +185,29 @@ export const stack = [
   "Figma",
 ] as const;
 
+export type Testimonial = {
+  /** Müşteri yorumu (1-3 cümle). */
+  quote: string;
+  /** Ad Soyad. */
+  author: string;
+  /** Unvan, Şirket. */
+  role: string;
+  /** Opsiyonel: ilgili projenin slug'ı (projects içinden). */
+  project?: string;
+};
+
+// Müşteri yorumları. Boşken site/Instagram'da bölüm görünmez.
+// Yeni yorum eklemek için diziye bir nesne ekle (örnek aşağıda yorum satırında).
+export const testimonials: Testimonial[] = [
+  // {
+  //   quote:
+  //     "Beklentimizin ötesinde, hızlı ve markamıza özel bir site çıktı. Süreç şeffaftı.",
+  //   author: "Ad Soyad",
+  //   role: "Genel Müdür, Turkwaelz",
+  //   project: "turkwaelz",
+  // },
+];
+
 export const values = [
   {
     title: "Tasarım, sonradan eklenen bir katman değil.",
