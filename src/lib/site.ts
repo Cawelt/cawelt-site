@@ -38,6 +38,7 @@ export const nav = [
   { label: "Süreç", href: "/surec" },
   { label: "Hakkımızda", href: "/hakkimizda" },
   { label: "Blog", href: "/blog" },
+  { label: "Oyun", href: "/oyun" },
   { label: "İletişim", href: "/iletisim" },
 ] as const;
 

@@ -25,6 +25,7 @@ const POSES: Record<string, Pose> = {
   "/surec": { x: 6, y: 78, r: 8, s: 1, w: 150 },
   "/hakkimizda": { x: 90, y: 12, r: -4, s: 0.9, w: 130 },
   "/iletisim": { x: 10, y: 14, r: 5, s: 1.1, w: 165 },
+  "/oyun": { x: 6, y: 30, r: 8, s: 0.78, w: 110 },
 };
 
 const FALLBACK: Pose = { x: 88, y: 78, r: -6, s: 1, w: 150 };
